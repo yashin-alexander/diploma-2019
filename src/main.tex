@@ -1,0 +1,43 @@
+% !TeX spellcheck = ru_RU_yo
+% !TEX program = xelatex
+
+\documentclass[pta]{styles/scs-iam}
+
+\begin{document}
+  \pagestyle{headcenter}
+
+  \input{src/title}
+  \input{src/task}
+  \input{src/annotation}
+
+  \setcounter{page}{4}
+
+  \section*{СОДЕРЖАНИЕ}
+  \tableofcontents
+
+  \newpage
+
+  % \input{src/0-intro}
+  % \input{src/1-analysis}
+  % \input{src/2-design}
+  % \input{src/3-development}
+  % \input{src/4-testing}
+  % \input{src/5-conclusion}
+  % \input{src/6-definitions}
+
+  \phantomsection
+  \addcontentsline{toc}{section}{Библиографический список}
+
+  \hyphenpenalty=10000
+  \interlinepenalty=10000
+
+  \nocite{*}
+  \bibliography{biblio}
+  
+  \clearpage
+  
+  %\begin{appendices}
+    %\input{src/appendices/events_module_listing}
+    %\input{src/appendices/toggle_tests_listing}
+  %\end{appendices}
+\end{document}
