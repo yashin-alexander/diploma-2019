@@ -14,7 +14,7 @@
 % ---------------------------------------------------------------------------- %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{scs-iam}[2017/09/02 SCS IAM dissertation class]
+\ProvidesClass{styles/scs-iam}[2017/09/02 SCS IAM dissertation class]
 
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
