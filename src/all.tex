@@ -1,14 +1,14 @@
 % !TeX spellcheck = ru_RU_yo
 % !TEX program = xelatex
 
-\documentclass[pta]{styles/scs-iam}
+\documentclass[pta]{build/scs-iam}
 
 \begin{document}
   \pagestyle{headcenter}
 
-  \input{src/title}
-  \input{src/task}
-  \input{src/annotation}
+  \input{build/title}
+  \input{build/task}
+  \input{build/annotation}
 
   \setcounter{page}{4}
 
@@ -17,13 +17,13 @@
 
   \newpage
 
-  \input{src/0-intro}
-  \input{src/1-analysis}
-  % \input{src/2-design}
-  % \input{src/3-development}
-  % \input{src/4-testing}
-  % \input{src/5-conclusion}
-  % \input{src/6-definitions}
+  \input{build/0-intro}
+  \input{build/1-analysis}
+  % \input{build/2-design}
+  % \input{build/3-development}
+  % \input{buildsrc/4-testing}
+  % \input{build/5-conclusion}
+  % \input{build/6-definitions}
 
   \phantomsection
   \addcontentsline{toc}{section}{Библиографический список}
@@ -32,7 +32,7 @@
   \interlinepenalty=10000
 
   \nocite{*}
-  \bibliography{biblio}
+  \bibliography{build/all}
   
   \clearpage
   
