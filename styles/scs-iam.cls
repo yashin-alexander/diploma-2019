@@ -14,7 +14,7 @@
 % ---------------------------------------------------------------------------- %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{styles/scs-iam}[2017/09/02 SCS IAM dissertation class]
+\ProvidesClass{build/scs-iam}[2017/09/02 SCS IAM dissertation class]
 
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
@@ -300,7 +300,7 @@
 \RequirePackage[numbers,colon]{natbib}
 
 \AtBeginDocument{
-  \bibliographystyle{utf8gost705u}
+  \bibliographystyle{build/utf8gost705u}
   \urlstyle{same}
 
   \makeatletter
