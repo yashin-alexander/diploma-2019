@@ -1,0 +1,39 @@
+% !TeX spellcheck = ru_RU_yo
+% !TEX program = xelatex
+
+\documentclass[pta]{build/scs-iam}
+
+\begin{document}
+  \pagestyle{headcenter}
+
+  \input{build/title}
+
+  \setcounter{page}{4}
+
+  \section*{СОДЕРЖАНИЕ}
+  \tableofcontents
+
+  \newpage
+
+  \input{build/0-intro}
+  \input{build/1-analysis}
+  \input{build/2-architecture}
+  \input{build/3-development}
+  \input{build/4-testing}
+
+  \phantomsection
+  \addcontentsline{toc}{section}{Библиографический список}
+
+  \hyphenpenalty=10000
+  \interlinepenalty=10000
+
+  \nocite{*}
+  \bibliography{build/all}
+  
+  \clearpage
+  
+  %\begin{appendices}
+    %\input{src/appendices/events_module_listing}
+    %\input{src/appendices/toggle_tests_listing}
+  %\end{appendices}
+\end{document}
