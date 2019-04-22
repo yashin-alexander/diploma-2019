@@ -1,9 +1,11 @@
 FONTS_DIR = fonts
 SOURCE_DIR = src
-STYLES_DIR = styles
-ALL_TARGET_FILE = $(SOURCE_DIR)/all.tex
-TASK_FILE = $(SOURCE_DIR)/main-task.tex
 BUILD_DIR = build
+STYLES_DIR = styles
+ALL_TARGET_FILE = $(BUILD_DIR)/all.tex
+NOTE_TARGET_FILE = $(BUILD_DIR)/note.tex
+TASK_FILE = $(SOURCE_DIR)/main-task.tex
+IMG_DIR = images
 
 install_deps:
 	sudo add-apt-repository ppa:jonathonf/texlive
@@ -16,13 +18,24 @@ install_fonts:
 	@echo "Fonts installed"
 all:
 	rm -rf $(BUILD_DIR)
-	mkdir -p $(BUILD_DIR)
-	cp $(SOURCE_DIR)/* $(BUILD_DIR)
+	mkdir -p $(BUILD_DIR)/$(IMG_DIR)
+	cp -r $(SOURCE_DIR)/* $(BUILD_DIR)
 	cp $(STYLES_DIR)/* $(BUILD_DIR)
 	xelatex -output-directory=$(BUILD_DIR) $(ALL_TARGET_FILE) 
 	bibtex $(BUILD_DIR)/all
 	xelatex -output-directory=$(BUILD_DIR) $(ALL_TARGET_FILE) 
 	xelatex -output-directory=$(BUILD_DIR) $(ALL_TARGET_FILE) 
+# Do not modify this target.
+
+note:
+	rm -rf $(BUILD_DIR)
+	mkdir -p $(BUILD_DIR)/$(IMG_DIR)
+	cp -r $(SOURCE_DIR)/* $(BUILD_DIR)
+	cp $(STYLES_DIR)/* $(BUILD_DIR)
+	xelatex -output-directory=$(BUILD_DIR) $(NOTE_TARGET_FILE) 
+	bibtex $(BUILD_DIR)/note
+	xelatex -output-directory=$(BUILD_DIR) $(NOTE_TARGET_FILE) 
+	xelatex -output-directory=$(BUILD_DIR) $(NOTE_TARGET_FILE) 
 # Do not modify this target.
 
 task:
