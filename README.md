@@ -7,8 +7,9 @@
 
 ### Build
 ```
-  make build
+  make all
 ```
 
 ## Thanks
-- A lot of acknowledgments to [Andrei Kuznetsov](https://github.com/AndrKzntsv) for the flawless [diploma-2018](https://github.com/AndrKzntsv/diploma-2018) project, which incredibly helped in the design of this work.
+- Many thanks to [Aleksandr Aleksandrov](https://github.com/AD-Aleksandrov) for the bold tasks and great ideas for the project.
+- A lot of acknowledgments to [Andrei Kuznetsov](https://github.com/AndrKzntsv) for the [diploma-2018](https://github.com/AndrKzntsv/diploma-2018) project, which helped in the design of this work.
