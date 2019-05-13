@@ -70,27 +70,31 @@
   \fontsize{30}{36}\selectfont
 
   \treeroot{\textbf{debian-based-image/}}
-    \treeentrycommented{\textbf{lib/}}{1}{webpack}{Библиотечные файлы системы сборки}
-      \treeentry{*.sh}{2}
-      \treeentry{*.sed}{2}
-    \treeentrycommented{\textbf{stageN/}}{1}{src}{Исходные файлы стадии}
-      \treeentry{N0-step}{2}{assets}{Шаги стадии}
+    \treeentrycommented{\textbf{lib/}}{1}{lib}{Библиотечные файлы системы сборки}
+      \treeentrycommented{config.sh}{2}{lib}{Функции конфигурации сборки}
+      \treeentrycommented{common.sh}{2}{lib}{Общие функции для шагов сборки}
+      \treeentrycommented{stages.sh}{2}{lib}{Функции для управления процессом сборки}
+      \treeentry{...}{2}{common}
+    \treeentrycommented{\textbf{stage0/}}{1}{stage0}{Исходные файлы стадии}
+      \treeentry{\textbf{00-step/}}{2}{stage0}{Шаги стадии}
         \treeentry{\textbf{files/}}{3}
-          \treeentrycommented{\textbf{...}}{4}{assets}{Файлы, необходимые для выполнения шагов стадии}
-        \treeentrycommented{\textbf{/00-run.sh}}{3}{assets}{Подшаги}
+          \treeentrycommented{\textbf{...}}{4}{stage0}{Файлы, необходимые для выполнения шагов стадии}
+        \treeentrycommented{00-run.sh}{3}{stage0}{Подшаги}
         \treeentry{01-run.sh}{3}
         \treeentry{...}{3}
-      \treeentry{\textbf{N1-step/}}{2}
-      \treeentrycommented{\textbf{prerun.sh}}{3}{assets}{Файлы, выполняемые до выполнения шагов стадии}
-      \treeentry{...}{3}
-      \treeentry{\textbf{work/}}{2}
-        \treeentrycommented{\textbf{stage0/}}{3}{common}{Рабочая директория для страдии 0}
-          \treeentrycommented{textbf{rootfs}}{4}{assets}{Содержимое rootfs текущей стадии}
-          \treeentry{biuld.log}{4}{Лог сборки}
-        \treeentry{...}{3}
-      \treeentrycommented{\textbf{deploy/}}{1}{assets}{Собранные файлы образов}
-      \treeentrycommented{\textbf{Dockerfile}}{1}{assets}{Конфигурационный файл Docker}
-      \treeentrycommented{\textbf{build.sh}}{1}{assets}{Исполняемый файл системы}
-      \treeentrycommented{\textbf{config}}{1}{assets}{Конфигурационный файл системы сборки}
+      \treeentrycommented{prerun.sh}{3}{stage0}{Файлы, выполняемые до выполнения шагов стадии}
+      \treeentry{\textbf{01-step/}}{2}
+    \treeentry{\textbf{stage1/}}{1}{stage1}
+      \treeentry{...}{1}
+      \treeentry{\textbf{work/}}{1}
+        \treeentrycommented{\textbf{stage0/}}{2}{work}{Рабочая директория для страдии 0}
+          \treeentrycommented{\textbf{rootfs}}{3}{work}{Содержимое rootfs текущей стадии}
+          \treeentrycommented{{biuld.log}}{3}{work}{Лог сборки}
+        \treeentry{\textbf{stage1/}}{2}
+        \treeentry{...}{2}
+      \treeentrycommented{\textbf{deploy/}}{1}{deploy}{Собранные файлы образов}
+      \treeentrycommented{Dockerfile}{1}{common}{Конфигурационный файл Docker}
+      \treeentrycommented{build.sh}{1}{common}{Исполняемый файл системы}
+      \treeentrycommented{config}{1}{common}{Конфигурационный файл системы сборки}
 \end{tikzpicture}
 \end{document}
