@@ -40,7 +40,7 @@ _generate:
 # Do not modify this target.
 
 all: _TARGET=$(ALL_TARGET_FILE)
-note: _BIB_TARGET=all
+all: _BIB_TARGET=all
 all: _generate
 
 note: _TARGET=$(NOTE_TARGET_FILE)
