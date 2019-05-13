@@ -1,0 +1,96 @@
+% !TEX program = xelatex
+% !TeX spellcheck = ru_RU_yo
+
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{fontspec}
+\setmainfont{PT Astra Sans}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+\newfontfamily{\cyrillicfont}{PT Astra Sans}
+\newfontfamily{\cyrillicfontsf}{PT Astra Sans}
+\newfontfamily{\cyrillicfonttt}{PT Mono}
+
+\usetikzlibrary{calc,arrows.meta}
+
+\definecolor{darkgray}{RGB}{85,85,85}
+
+\newcounter{treeline}
+
+\newcommand{\treeroot}[1]{ % Title
+  \node[above] at (0,1) {\texttt{#1}};
+
+  \setcounter{treeline}{0}
+}
+
+\newcommand{\treeentry}[2]{ % Title, Level
+  \draw[thick]
+    (#2 - 1, -\value{treeline} * 2 + 1) --
+    (#2 - 1, -\value{treeline} - \value{treeline} - 1) --
+    (#2 + 1, -\value{treeline} - \value{treeline} - 1) node[right] {\texttt{#1}};
+
+  \node at (#2 + 1, -\value{treeline} - \value{treeline} - 1) [yshift=-3pt] {\textbullet};
+
+  \foreach \x in {1,...,#2}
+  {
+    \draw[thick]
+      (\x - 1, -\value{treeline} * 2 + 1) --
+      (\x - 1, -\value{treeline} - \value{treeline} - 1);
+  }
+
+  \stepcounter{treeline}
+}
+
+\newcommand{\treeentrycommented}[4]{ % Title, Level, Dummy node, Comment
+  \draw[thick]
+    (#2 - 1, -\value{treeline} * 2 + 1) --
+    (#2 - 1, -\value{treeline} - \value{treeline} - 1) --
+    (#2 + 1, -\value{treeline} - \value{treeline} - 1) node[right] (#3) {\texttt{#1}};
+
+  \node at (#2 + 1, -\value{treeline} - \value{treeline} - 1) [yshift=-3pt] {\textbullet};
+
+  \draw[
+    gray,
+    line width=3pt, line cap=round, dash pattern=on 0pt off 10pt
+  ] (#3) -- (20, -\value{treeline} - \value{treeline} - 1) node[darkgray,right] {#4};
+
+  \foreach \x in {1,...,#2}
+  {
+    \draw[thick]
+      (\x - 1, -\value{treeline} * 2 + 1) --
+      (\x - 1, -\value{treeline} - \value{treeline} - 1);
+  }
+
+  \stepcounter{treeline}
+}
+\begin{document}
+
+\begin{tikzpicture}
+  \fontsize{30}{36}\selectfont
+
+  \treeroot{\textbf{debian-based-image/}}
+    \treeentrycommented{\textbf{lib/}}{1}{webpack}{Библиотечные файлы системы сборки}
+      \treeentry{*.sh}{2}
+      \treeentry{*.sed}{2}
+    \treeentrycommented{\textbf{stageN/}}{1}{src}{Исходные файлы стадии}
+      \treeentry{N0-step}{2}{assets}{Шаги стадии}
+        \treeentry{\textbf{files/}}{3}
+          \treeentrycommented{\textbf{...}}{4}{assets}{Файлы, необходимые для выполнения шагов стадии}
+        \treeentrycommented{\textbf{/00-run.sh}}{3}{assets}{Подшаги}
+        \treeentry{01-run.sh}{3}
+        \treeentry{...}{3}
+      \treeentry{\textbf{N1-step/}}{2}
+      \treeentrycommented{\textbf{prerun.sh}}{3}{assets}{Файлы, выполняемые до выполнения шагов стадии}
+      \treeentry{...}{3}
+      \treeentry{\textbf{work/}}{2}
+        \treeentrycommented{\textbf{stage0/}}{3}{common}{Рабочая директория для страдии 0}
+          \treeentrycommented{textbf{rootfs}}{4}{assets}{Содержимое rootfs текущей стадии}
+          \treeentry{biuld.log}{4}{Лог сборки}
+        \treeentry{...}{3}
+      \treeentrycommented{\textbf{deploy/}}{1}{assets}{Собранные файлы образов}
+      \treeentrycommented{\textbf{Dockerfile}}{1}{assets}{Конфигурационный файл Docker}
+      \treeentrycommented{\textbf{build.sh}}{1}{assets}{Исполняемый файл системы}
+      \treeentrycommented{\textbf{config}}{1}{assets}{Конфигурационный файл системы сборки}
+\end{tikzpicture}
+\end{document}
