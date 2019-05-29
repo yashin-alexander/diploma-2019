@@ -321,7 +321,7 @@
 \renewenvironment{appendices}{
   \setcounter{section}{0}
   \renewcommand{\thesection}{\appendixname~\Asbuk{section}}
-  
+
   \addtocontents{toc}{\setlength{\cftsecnumwidth}{15ex}}
 }
 
@@ -525,6 +525,22 @@
   \underline{\hspace{3.5cm}}
   \hspace{0.2cm}
   20\,\underline{\hspace{0.75cm}}\,г.
+}
+
+\newcommand{\datetemplatealiev}{
+  <<\,\underline{\ \ \ 22\hspace{0.7cm}}\,>>
+  \hspace{0.2cm}
+  \underline{мая\hspace{2.85cm}}
+  \hspace{0.2cm}
+  20\,\underline{19\hspace{0.45cm}}\,г.
+}
+
+\newcommand{\datetemplateprot}{
+  <<\,\underline{29\hspace{0.7cm}}\,>>
+  \hspace{0.2cm}
+  \underline{мая\hspace{2.85cm}}
+  \hspace{0.2cm}
+  20\,\underline{19\hspace{0.45cm}}\,г.
 }
 
 \newcommand{\specialdatetemplate}{
